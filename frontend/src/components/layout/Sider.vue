@@ -42,8 +42,9 @@ const generateMenuItems = (routes: Readonly<RouteRecordRaw[]>) => {
         path: item.path,
       };
 
-      if (item?.meta?.icon && typeof item.meta.icon === 'string') {
-        menuItem.icon = () => h(MySvgIcon, { name: item.meta.icon });
+      const meta = item.meta;
+      if (meta && meta.icon && typeof meta.icon === 'string') {
+        menuItem.icon = () => h(MySvgIcon, { name: meta.icon as string });
       }
 
       if (item.children && item.children.length > 0) {

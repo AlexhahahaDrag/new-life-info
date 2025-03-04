@@ -1,6 +1,6 @@
 <template>
   <svg class="icon" aria-hidden="true">
-    <use :href="symbolId" :fill="color" />
+    <use :href="symbolId" :fill="props.color" />
   </svg>
 </template>
 

@@ -4,7 +4,6 @@ import { resolve } from 'path';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
-import compression from 'vite-plugin-compression';
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import svgLoader from 'vite-svg-loader';
 import path from 'path';
@@ -40,12 +39,12 @@ export default defineConfig({
         enabled: true,
       },
     }),
-    compression({
-      algorithm: 'gzip', // 压缩算法
-      ext: '.gz', // 文件类型
-      deleteOriginFile: false, // 是否删除原文件
-      threshold: 10240, // 压缩前最小文件大小（字节）
-    }),
+    // compression({
+    //   algorithm: 'gzip', // 压缩算法
+    //   ext: '.gz', // 文件类型
+    //   deleteOriginFile: false, // 是否删除原文件
+    //   threshold: 10240, // 压缩前最小文件大小（字节）
+    // }),
   ],
   resolve: {
     alias: {
@@ -68,10 +67,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         sourcemap: false,
-        manualChunks: {
-          'ant-design-vue': ['ant-design-vue'],
-          vendor: ['vue', 'vue-router', 'pinia'],
-        },
+        manualChunks: undefined, // 禁用手动代码拆分
       },
     },
     chunkSizeWarningLimit: 1500,

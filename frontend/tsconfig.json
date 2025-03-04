@@ -1,45 +1,26 @@
 {
   "compilerOptions": {
     "target": "esnext",
-    "useDefineForClassFields": true,
     "module": "esnext",
+    "moduleResolution": "bundler",
     "strict": true,
+    "noImplicitAny": false,
+    "strictFunctionTypes": false,
     "jsx": "preserve",
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "allowJs": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "vite/client",
-      // "src/auto-imports.d.ts", // 添加这一行
-    ],
-    "noLib": false,
-    "forceConsistentCasingInFileNames": true,
-    "strictFunctionTypes": false,
-    "resolveJsonModule": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "noImplicitAny": false,
+    "useDefineForClassFields": true,
     "skipLibCheck": true,
-    "removeComments": true,
+    "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "#/*": [
-        "types/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
-    ]
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
+    "noEmit": true
   },
   "include": [
     "tests/**/*.ts",
@@ -54,12 +35,7 @@
     "mock/**/*.ts",
     "vite.config.mts",
     "components.d.ts",
-    // "src/auto-imports.d.ts",
+    "src/auto-imports.d.ts"
   ],
-  "exclude": [
-    "node_modules",
-    "tests/server/**/*.ts",
-    "dist",
-    "**/*.js"
-  ],
+  "exclude": ["node_modules", "dist"]
 }
