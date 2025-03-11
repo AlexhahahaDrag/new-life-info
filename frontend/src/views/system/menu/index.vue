@@ -21,15 +21,30 @@
 </template>
 
 <script setup lang="ts">
-const columns = [
+interface MenuItem {
+  key: string;
+  name: string;
+  icon?: string;
+  path: string;
+  sort: number;
+  children?: MenuItem[];
+}
+
+interface TableColumn {
+  title: string;
+  dataIndex?: string;
+  key: string;
+}
+
+const columns = ref<any[]>([
   { title: '菜单名称', dataIndex: 'name', key: 'name' },
   { title: '图标', dataIndex: 'icon', key: 'icon' },
   { title: '路由路径', dataIndex: 'path', key: 'path' },
   { title: '排序', dataIndex: 'sort', key: 'sort' },
   { title: '操作', key: 'action' },
-];
+]);
 
-const data = [
+const data: MenuItem[] = [
   {
     key: '1',
     name: '仪表盘',

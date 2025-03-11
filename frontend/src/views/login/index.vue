@@ -2,10 +2,7 @@
   <div class="login-container">
     <a-card class="login-card" title="Login">
       <a-form :model="formState" @finish="onFinish">
-        <a-form-item
-          name="username"
-          :rules="[{ required: true, message: 'Please input your username!' }]"
-        >
+        <a-form-item name="username" :rules="[{ required: true, message: 'Please input your username!' }]">
           <a-input v-model:value="formState.username" placeholder="Username">
             <template #prefix>
               <UserOutlined />
@@ -13,10 +10,7 @@
           </a-input>
         </a-form-item>
 
-        <a-form-item
-          name="password"
-          :rules="[{ required: true, message: 'Please input your password!' }]"
-        >
+        <a-form-item name="password" :rules="[{ required: true, message: 'Please input your password!' }]">
           <a-input-password v-model:value="formState.password" placeholder="Password">
             <template #prefix>
               <LockOutlined />
